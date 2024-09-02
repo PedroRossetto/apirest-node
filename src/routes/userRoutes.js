@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import userController from '../controllers/UserController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
 // Rota secundária
 // site.com/users/${store, show, update, delete}
 router.post('/store/', userController.store);
-router.get('/', userController.index);
+router.get('/', loginRequired, userController.index);
 router.get('/show/:id', userController.show);
 router.put('/update/:id', userController.update);
 router.delete('/delete/:id', userController.delete);
