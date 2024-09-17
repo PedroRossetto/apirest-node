@@ -6,11 +6,11 @@ const router = new Router();
 
 // Rota secundária
 // site.com/users/${store, show, update, delete}
-router.post('/store/', userController.store);
-router.get('/', loginRequired, userController.index);
 router.get('/show/:id', userController.show);
-router.put('/update/:id', userController.update);
-router.delete('/delete/:id', userController.delete);
+
+router.post('/store/', userController.store);
+router.put('/update/', loginRequired, userController.update);
+router.delete('/delete/', loginRequired, userController.delete);
 
 export default router;
 
