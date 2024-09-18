@@ -8,7 +8,7 @@ const router = new Router();
 // site.com/users/${store, show, update, delete}
 router.get('/show/:id', userController.show);
 
-router.post('/store/', userController.store);
+router.post('/store/', loginRequired, userController.store);
 router.put('/update/', loginRequired, userController.update);
 router.delete('/delete/', loginRequired, userController.delete);
 
